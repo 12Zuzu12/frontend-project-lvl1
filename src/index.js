@@ -1,15 +1,16 @@
-
-import { calc } from '../bin/brain-calc.js'
+//import { calc } from '../bin/brain-calc.js'
 import readlineSync from 'readline-sync';
-import { getInstructionsGames } from '../bin/brain-calc.js';
+import { gcd } from '../bin/brain-gcd.js'
 
-const random = (max, min) => {
+
+export const random = (max, min) => {
   const randomNumber = Math.floor(Math.random() * (max - min + min)) + max;
 };
 
-export default function getRndInteger(min, max) {
+export const getRndInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min;
 }
+
 export function getRndOperator() {
   let ops = ['+', '-', '*'];
   let opindex = Math.floor(Math.random() * 3);
@@ -17,11 +18,13 @@ export function getRndOperator() {
   return operator1;
 }
 export function conclusions() {
+  console.log('Welcome to the Brain Games!')
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello,${name}!`);
-  console.log(getInstructionsGames);
+  const getInstructionsGames = gcd()
+  console.log(getInstructionsGames[2]);
   for (let i = 0; i < 3; i += 1) {
-    const getExpression = calc();
+    const getExpression = gcd();
     console.log(`${getExpression[1]}`);
     const parityIssue = readlineSync.question(`Your answer: `);
     if (getExpression[0] === Number(parityIssue)) {
@@ -33,4 +36,5 @@ Let's try again, ${name}!'`);
     }
   }
   console.log(`"Congratulations, ${name}!"`);
+return
 }
