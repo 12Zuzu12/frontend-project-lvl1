@@ -1,11 +1,4 @@
-//import { calc } from '../bin/brain-calc.js'
-import readlineSync from 'readline-sync';
-import { gcd } from '../bin/brain-gcd.js'
-
-
-export const random = (max, min) => {
-  const randomNumber = Math.floor(Math.random() * (max - min + min)) + max;
-};
+import readlineSync, { question } from 'readline-sync';
 
 export const getRndInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -17,24 +10,23 @@ export function getRndOperator() {
   const operator1 = ops[opindex];
   return operator1;
 }
-export function conclusions() {
-  console.log('Welcome to the Brain Games!')
+export function conclusions(functionGame,getInstructionsGames) {
+  console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello,${name}!`);
-  const getInstructionsGames = gcd()
-  console.log(getInstructionsGames[2]);
+  console.log(getInstructionsGames);
   for (let i = 0; i < 3; i += 1) {
-    const getExpression = gcd();
-    console.log(`${getExpression[1]}`);
+    const correctAnswer = functionGame();
+    console.log(`Question: ${correctAnswer[1]}`);
     const parityIssue = readlineSync.question(`Your answer: `);
-    if (getExpression[0] === Number(parityIssue)) {
+    if (correctAnswer[0] === Number(parityIssue)) {
       console.log('Correct!');
     } else {
-      console.log(`'${parityIssue}' is wrong answer ;(. Correct answer was '${getExpression[0]}'.
+      console.log(`'${parityIssue}' is wrong answer ;(. Correct answer was '${correctAnswer[0]}'.
 Let's try again, ${name}!'`);
       return;
     }
   }
   console.log(`"Congratulations, ${name}!"`);
-return
+
 }
