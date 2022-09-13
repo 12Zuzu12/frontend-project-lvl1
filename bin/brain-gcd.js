@@ -3,16 +3,16 @@
 import {getRndInteger} from '../randomFile.js';
 import  { conclusions }  from '../src/index.js';
 
-conclusions();
-export function gcd() {
+const getInstructionsGames = 'Find the greatest common divisor of given numbers.';
+const gcd = () => {
   let randomNumber1 = getRndInteger(100, 1);
   let randomNumber2 = getRndInteger(100, 1);
-  const question = `Question: ${randomNumber1} ${randomNumber2}`;
-  const getInstructionsGames = 'Find the greatest common divisor of given numbers.';
+  const question = `${randomNumber1} ${randomNumber2}`;
+  
   let resultOpNumber = 0
   if (randomNumber1 == 0){
     resultOpNumber = randomNumber2
-    return resultOpNumber;
+   return resultOpNumber;
   }
 
   while (randomNumber2 != 0) {
@@ -24,5 +24,6 @@ export function gcd() {
   }
 
   resultOpNumber = randomNumber1
-  return [resultOpNumber,question,getInstructionsGames];
+  return [resultOpNumber,question];
 }
+conclusions(gcd,getInstructionsGames);
