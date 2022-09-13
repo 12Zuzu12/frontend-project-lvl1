@@ -1,17 +1,15 @@
 #!/usr/bin/env node
 
-import greetings from '../bin/brain-games.js';
-import getRndInteger from '../src/index.js';
+import {getRndInteger} from '../src/index.js';
 import  { getRndOperator }  from '../src/index.js';
 import { conclusions } from '../src/index.js';
 
-greetings();
-export const getInstructionsGames = 'What is the result of the expression?';
-export function calc () {
+const getInstructionsGames = 'What is the result of the expression?';
+const calc = () => {
   const randomNumber1 = getRndInteger(100, 1);
   const randomNumber2 = getRndInteger(100, 1);
   let getRandomOperator = getRndOperator();
-  const question = `Question: ${randomNumber1} ${getRandomOperator} ${randomNumber2}`;
+  const question = `${randomNumber1} ${getRandomOperator} ${randomNumber2}`;
   let result = 0; 
   switch (getRandomOperator) {
     case '+':
@@ -28,4 +26,4 @@ export function calc () {
   }
   return [result,question];
 }
-conclusions();
+conclusions(calc,getInstructionsGames);
