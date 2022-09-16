@@ -22,7 +22,7 @@ const evenGames = () => {
       correctYes += 1;
     } else if (randomNumber % 2 === 0 && parityIssue === 'no') {
       console.log(`'no' is wrong answer ;(. Correct answer was 'yes'.
-Let'/s try again, ${name}!`);
+Let's try again, ${name}!`);
       break;
     } else if (randomNumber % 2 !== 0 && parityIssue === 'yes') {
       console.log(`'yes' is wrong answer ;(. Correct answer was 'no'.
