@@ -16,3 +16,5 @@ brain-gcdprogression:
 	node bin/brain-progression.js
 brain-prime:
 	node bin/brain-prime.js	
+brain-games:
+	node bin/brain-games.js	
