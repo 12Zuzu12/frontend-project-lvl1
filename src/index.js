@@ -3,7 +3,7 @@ import readlineSync, { question } from 'readline-sync';
 export function conclusions(functionGame,getInstructionsGames) {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello,${name}!`);
+  console.log(`Hello, ${name}!`);
   console.log(getInstructionsGames);
   for (let i = 0; i < 3; i += 1) {
     const correctAnswer = functionGame();
