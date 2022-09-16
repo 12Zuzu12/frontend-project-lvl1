@@ -1,7 +1,4 @@
 #!/usr/bin/env node
+import redName from '../src/cli.js';
 
-const greetings = () => {
-  console.log('Welcome to the Brain Games!');
-};
-export default greetings;
-greetings();
+redName();
