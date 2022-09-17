@@ -5,4 +5,4 @@ import { conclusions } from '../src/index.js';
 
 const getInstructionsGames = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 prime();
-conclusions(prime,getInstructionsGames);
+conclusions(prime, getInstructionsGames);

@@ -6,19 +6,19 @@ const gcd = () => {
   const question = `${randomNumber1} ${randomNumber2}`;
   let resultOpNumber = '';
   let resultOpNumber1 = '';
-  if (randomNumber1 == 0) {
+  if (randomNumber1 === 0) {
     resultOpNumber = randomNumber2;
     return resultOpNumber;
   }
-  while (randomNumber2 != 0) {
+  while (randomNumber2 !== 0) {
     if (randomNumber1 > randomNumber2) {
-      randomNumber1 = randomNumber1 - randomNumber2;
+      randomNumber1 -= randomNumber2;
     } else {
-      randomNumber2 = randomNumber2 - randomNumber1;
+      randomNumber2 -= randomNumber1;
     }
   }
   resultOpNumber = randomNumber1
-  resultOpNumber1 += resultOpNumber
+  resultOpNumber1 += resultOpNumber;
   return [resultOpNumber1, question];
 };
 export default gcd;
