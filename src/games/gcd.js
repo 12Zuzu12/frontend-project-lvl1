@@ -17,7 +17,7 @@ const gcd = () => {
       randomNumber2 -= randomNumber1;
     }
   }
-  resultOpNumber = randomNumber1
+  resultOpNumber = randomNumber1;
   resultOpNumber1 += resultOpNumber;
   return [resultOpNumber1, question];
 };
