@@ -13,9 +13,10 @@ const progression = () => {
     algebraicProgression.push(item);
   }
   algebraicProgression.pop();
-  const point = '..';
   // eslint-disable-next-line prefer-const
-  let e = Math.floor(Math.random() * 7) + 1;
+  let point = '..';
+  // eslint-disable-next-line prefer-const
+  let e = Math.floor(Math.random() * 6) + 1;
   const correctNumber = algebraicProgression[e];
   algebraicProgression[e] = point;
   const question1 = `${algebraicProgression.join(' ')}`;
