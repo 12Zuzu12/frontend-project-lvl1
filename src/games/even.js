@@ -1,38 +1,15 @@
-import readlineSync from 'readline-sync';
+import number from '../Helper.js';
 
-const evenGames = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello,${name}!`);
-  let correctYes = 0;
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
-    if (correctYes === 3) {
-      console.log(`Congratulations, ${name}!`);
-      break;
+const evenNumbers = () => {
+  const randomNumber = number(10, 0);
+  const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const correctAnswer = () => {
+    if (randomNumber % 2 === 0) {
+      return 'yes';
     }
-    const randomNumber = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
-    console.log(`Question: ${randomNumber}`);
-    // eslint-disable-next-line quotes
-    const parityIssue = readlineSync.question(`Your answer: `);
-    if (randomNumber % 2 === 0 && parityIssue === 'yes' && correctYes <= 3) {
-      console.log('Correct!');
-      correctYes += 1;
-    } else if (randomNumber % 2 !== 0 && parityIssue === 'no' && correctYes <= 3) {
-      console.log('Correct!');
-      correctYes += 1;
-    } else if (randomNumber % 2 === 0 && parityIssue === 'no') {
-      console.log(`'no' is wrong answer ;(. Correct answer was 'yes'.
-Let's try again, ${name}!`);
-      break;
-    } else if (randomNumber % 2 !== 0 && parityIssue === 'yes') {
-      console.log(`'yes' is wrong answer ;(. Correct answer was 'no'.
-Let's try again, ${name}!`);
-      break;
-    } else {
-      break;
-    }
-  }
+    return 'no';
+  };
+  const correctAnswer1 = correctAnswer();
+  return [correctAnswer1, randomNumber, gameDescription];
 };
-export default evenGames;
+export default evenNumbers;

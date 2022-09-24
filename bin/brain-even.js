@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import evenGames from '../src/games/even.js';
+import evenNumbers from '../src/games/even.js';
+import gameBrainLogic from '../src/index.js';
 
-evenGames();
+gameBrainLogic(evenNumbers);

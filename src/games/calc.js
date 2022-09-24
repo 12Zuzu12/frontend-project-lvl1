@@ -1,30 +1,28 @@
-// eslint-disable-next-line import/no-duplicates
-import { getRndInteger } from '../Helper.js';
-// eslint-disable-next-line import/no-duplicates
-import { getRndOperator } from '../Helper.js';
+import number from '../Helper.js';
 
-const calc = () => {
-  const randomNumber1 = getRndInteger(100, 1);
-  const randomNumber2 = getRndInteger(100, 1);
-  // eslint-disable-next-line prefer-const
-  let getRandomOperator = getRndOperator();
-  let result1 = '';
-  const question = `${randomNumber1} ${getRandomOperator} ${randomNumber2}`;
-  let result = 0;
-  switch (getRandomOperator) {
+// eslint-disable-next-line consistent-return
+const startGame = (randomNumber1, randomNumber2, operator1) => {
+  switch (operator1) {
     case '+':
-      result = randomNumber1 + randomNumber2;
-      break;
+      return (String(randomNumber1 + randomNumber2));
     case '-':
-      result = randomNumber1 - randomNumber2;
-      break;
+      return (String(randomNumber1 - randomNumber2));
     case '*':
-      result = randomNumber1 * randomNumber2;
-      break;
+      return (String(randomNumber1 * randomNumber2));
     default:
-      result = null;
   }
-  result1 += result;
-  return [result1, question];
 };
+const calc = () => {
+  const randomNumber1 = number(100, 1);
+  const randomNumber2 = number(100, 1);
+  // eslint-disable-next-line prefer-const
+  const ops = ['+', '-', '*'];
+  const opindex = Math.floor(Math.random() * 3);
+  const operator1 = ops[opindex];
+  const question = `${randomNumber1} ${operator1} ${randomNumber2}`;
+  const gameDescription = 'What is the result of the expression?';
+  const correctAnswer = startGame(randomNumber1, randomNumber2, operator1);
+  return [correctAnswer, question, gameDescription];
+};
+
 export default calc;
