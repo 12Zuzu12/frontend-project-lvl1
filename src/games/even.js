@@ -11,7 +11,7 @@ export default () => {
   const evenNumbers = () => {
     const randomNumber = number(10, 0);
     const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
-    const correctAnswer = isSimpleNumber();
+    const correctAnswer = isSimpleNumber(randomNumber);
     return [correctAnswer, gameDescription, randomNumber];
   };
   gameBrainLogic(evenNumbers);
