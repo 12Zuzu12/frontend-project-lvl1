@@ -1,15 +1,14 @@
-// eslint-disable-next-line no-unused-vars
-import readlineSync, { question } from 'readline-sync';
+import readlineSync from 'readline-sync';
 
 function gameBrainLogic(functionGame) {
   const numberOfRounds = 3;
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-  const [, , gameDescription] = functionGame();
+  const [, gameDescription] = functionGame();
   console.log(gameDescription);
   for (let i = 0; i < numberOfRounds; i += 1) {
-    const [correctAnswer, сondition] = functionGame();
+    const [correctAnswer, , сondition] = functionGame();
     console.log(`Question: ${сondition}`);
     // eslint-disable-next-line quotes
     const parityIssue = readlineSync.question(`Your answer: `);

@@ -1,15 +1,18 @@
 import number from '../Helper.js';
+import gameBrainLogic from '../index.js';
 
-const evenNumbers = () => {
-  const randomNumber = number(10, 0);
-  const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const correctAnswer = () => {
+export default () => {
+  const isSimpleNumber = (randomNumber) => {
     if (randomNumber % 2 === 0) {
       return 'yes';
     }
     return 'no';
   };
-  const correctAnswer1 = correctAnswer();
-  return [correctAnswer1, randomNumber, gameDescription];
+  const evenNumbers = () => {
+    const randomNumber = number(10, 0);
+    const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+    const correctAnswer = isSimpleNumber();
+    return [correctAnswer, gameDescription, randomNumber];
+  };
+  gameBrainLogic(evenNumbers);
 };
-export default evenNumbers;
