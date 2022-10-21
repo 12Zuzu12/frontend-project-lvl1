@@ -29,4 +29,4 @@ const gcd = () => {
   const correctAnswer = searchGcd(randomNumber1, randomNumber2);
   return [correctAnswer[0], question];
 };
-export default () =>  gameBrainLogic(gcd, gameDescription);
+export default () => gameBrainLogic(gcd, gameDescription);
