@@ -2,7 +2,7 @@ import number from '../Helper.js';
 import gameBrainLogic from '../index.js';
 
 const gameDescription = 'What is the result of the expression?';
-const сalculation = (randomNumber1, randomNumber2, operator) => {
+const сalculate = (randomNumber1, randomNumber2, operator) => {
   switch (operator) {
     case '+':
       return (String(randomNumber1 + randomNumber2));
@@ -21,7 +21,7 @@ const calc = () => {
   const opindex = Math.floor(Math.random() * ops.length);
   const operator = ops[opindex];
   const question = `${randomNumber1} ${operator} ${randomNumber2}`;
-  const correctAnswer = сalculation(randomNumber1, randomNumber2, operator);
+  const correctAnswer = сalculate(randomNumber1, randomNumber2, operator);
   return [correctAnswer, question];
 };
 export default () => gameBrainLogic(calc, gameDescription);
