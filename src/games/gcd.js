@@ -2,31 +2,26 @@ import number from '../Helper.js';
 import gameBrainLogic from '../index.js';
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';
-const searchGcd = (randomNumber1, randomNumber2) => {
+function searchGcd(randomNumber1, randomNumber2) {
   let resultOpNumber = '';
-  let resultOpNumber1 = '';
-  if (randomNumber1 === 0) {
-    resultOpNumber = randomNumber2;
-    return resultOpNumber;
-  }
-  while (randomNumber2 !== 0) {
-    if (randomNumber1 > randomNumber2) {
-      // eslint-disable-next-line no-param-reassign
-      randomNumber1 -= randomNumber2;
+  let number1 = randomNumber1;
+  let number2 = randomNumber2;
+  while (number1 && number2) {
+    if (number1 > number2) {
+      number1 %= number2;
     } else {
-      // eslint-disable-next-line no-param-reassign
-      randomNumber2 -= randomNumber1;
+      number2 %= number1;
     }
   }
-  resultOpNumber = randomNumber1;
-  resultOpNumber1 += resultOpNumber;
-  return [resultOpNumber1];
-};
+  number2 += number1;
+  resultOpNumber += number2;
+  return resultOpNumber;
+}
 const gcd = () => {
   const randomNumber1 = number(100, 1);
   const randomNumber2 = number(100, 1);
   const question = `${randomNumber1} ${randomNumber2}`;
   const correctAnswer = searchGcd(randomNumber1, randomNumber2);
-  return [correctAnswer[0], question];
+  return [correctAnswer, question];
 };
 export default () => gameBrainLogic(gcd, gameDescription);
