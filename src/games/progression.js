@@ -2,16 +2,16 @@ import number from '../Helper.js';
 import gameBrainLogic from '../index.js';
 
 const gameDescription = 'What number is missing in the progression?';
-const algebraicProgressions = (firstNumber, step) => {
+const generateProgression = (firstNumber, step) => {
   const progressionLength = 7;
   const algebraicProgression = [];
-  for (let i = 0; algebraicProgression.length - 1 < progressionLength; i += 1) {
+  for (let i = 0; i < progressionLength; i += 1) {
     algebraicProgression.push(firstNumber + i * step);
   }
   return algebraicProgression;
 };
 const startGame = (firstNumber, step, randomPlaceQuotes) => {
-  const algebraicProgression = algebraicProgressions(firstNumber, step);
+  const algebraicProgression = generateProgression(firstNumber, step);
   const resultNumber = algebraicProgression[randomPlaceQuotes];
   algebraicProgression[randomPlaceQuotes] = '..';
   const question1 = `${algebraicProgression.join(' ')}`;
@@ -20,7 +20,7 @@ const startGame = (firstNumber, step, randomPlaceQuotes) => {
 const progression = () => {
   const firstNumber = number(100, 1);
   const step = number(5, 1);
-  const randomPlaceQuotes = number(6, 1);
+  const randomPlaceQuotes = number(7, 1);
   const result = startGame(firstNumber, step, randomPlaceQuotes);
   const rightAnswer = String(result[0]);
   return [rightAnswer, result[1]];
