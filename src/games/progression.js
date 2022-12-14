@@ -21,7 +21,7 @@ const progression = () => {
   const firstNumber = generateNumber(100, 1);
   const progressionLength = generateNumber(9, 5);
   const step = generateNumber(5, 1);
-  const randomPlaceQuotes = generateNumber(7, 1);
+  const randomPlaceQuotes = generateNumber(6, 1);
   const result = startGame(firstNumber, step, randomPlaceQuotes, progressionLength);
   const rightAnswer = String(result[0]);
   return [rightAnswer, result[1]];
