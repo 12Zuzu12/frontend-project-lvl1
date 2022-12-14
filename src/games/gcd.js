@@ -1,4 +1,4 @@
-import number from '../Helper.js';
+import generateNumber from '../Helper.js';
 import gameBrainLogic from '../index.js';
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';
@@ -18,8 +18,8 @@ function searchGcd(randomNumber1, randomNumber2) {
   return resultOpNumber;
 }
 const gcd = () => {
-  const randomNumber1 = number(100, 1);
-  const randomNumber2 = number(100, 1);
+  const randomNumber1 = generateNumber(100, 1);
+  const randomNumber2 = generateNumber(100, 1);
   const question = `${randomNumber1} ${randomNumber2}`;
   const correctAnswer = searchGcd(randomNumber1, randomNumber2);
   return [correctAnswer, question];
