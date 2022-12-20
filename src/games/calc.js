@@ -18,7 +18,7 @@ const calc = () => {
   const randomNumber1 = generateNumber(100, 1);
   const randomNumber2 = generateNumber(100, 1);
   const ops = ['+', '-', '*'];
-  const randomOpsIndex = generateNumber(3, 0);
+  const randomOpsIndex = generateNumber(ops.length, 0);
   const operator = ops[randomOpsIndex];
   const question = `${randomNumber1} ${operator} ${randomNumber2}`;
   const correctAnswer = сalculate(randomNumber1, randomNumber2, operator);

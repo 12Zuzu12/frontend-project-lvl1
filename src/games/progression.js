@@ -10,20 +10,16 @@ const generateProgression = (firstNumber, step, progressionLength) => {
   return algebraicProgression;
 };
 
-const progression = () => {
-  const startGame = (firstNumber, step, randomPlaceQuotes, progressionLength) => {
-    const algebraicProgression = generateProgression(firstNumber, step, progressionLength);
-    const resultNumber = algebraicProgression[randomPlaceQuotes];
-    algebraicProgression[randomPlaceQuotes] = '..';
-    const question1 = `${algebraicProgression.join(' ')}`;
-    return [resultNumber, question1];
-  };
+const startGame = () => {
   const firstNumber = generateNumber(100, 1);
   const progressionLength = generateNumber(9, 5);
   const step = generateNumber(5, 1);
-  const randomPlaceQuotes = generateNumber(6, 1);
-  const result = startGame(firstNumber, step, randomPlaceQuotes, progressionLength);
-  const rightAnswer = String(result[0]);
-  return [rightAnswer, result[1]];
+  const randomPlaceQuotes = generateNumber(5, 1);
+  const algebraicProgression = generateProgression(firstNumber, step, progressionLength);
+  const resultNumber = algebraicProgression[randomPlaceQuotes];
+  const rightAnswer = String(resultNumber);
+  algebraicProgression[randomPlaceQuotes] = '..';
+  const question1 = `${algebraicProgression.join(' ')}`;
+  return [rightAnswer, question1];
 };
-export default () => gameBrainLogic(progression, gameDescription);
+export default () => gameBrainLogic(startGame, gameDescription);

@@ -2,7 +2,7 @@ import generateNumber from '../Helper.js';
 import gameBrainLogic from '../index.js';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
-const primeNumber = (randomNumber) => {
+const isEven = (randomNumber) => {
   if (randomNumber % 2 === 0) {
     return true;
   }
@@ -10,7 +10,7 @@ const primeNumber = (randomNumber) => {
 };
 const evenNumbers = () => {
   const randomNumber = generateNumber(10, 0);
-  const correctAnswer = primeNumber(randomNumber) ? 'yes' : 'no';
+  const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
   return [correctAnswer, randomNumber];
 };
 export default () => gameBrainLogic(evenNumbers, gameDescription);
