@@ -17,8 +17,8 @@ const isPrime = (randomNumber) => {
 
 const sayPrimeOrNot = () => {
   const randomNumber = generateNumber(100, 2);
-  const text = isPrime(randomNumber) ? 'yes' : 'no';
-  return [text, randomNumber];
+  const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no';
+  return [correctAnswer, randomNumber];
 };
 
 export default () => gameBrainLogic(sayPrimeOrNot, gameDescription);
