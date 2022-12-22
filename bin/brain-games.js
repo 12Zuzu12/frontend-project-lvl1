@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import redName from '../src/cli.js';
+import ask from '../src/cli.js';
 
-redName();
+ask();
