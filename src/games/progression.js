@@ -14,12 +14,12 @@ const startGame = () => {
   const firstNumber = generateNumber(100, 1);
   const progressionLength = generateNumber(9, 5);
   const step = generateNumber(5, 1);
-  const randomPlaceQuotes = generateNumber(5, 1);
-  const algebraicProgression = generateProgression(firstNumber, step, progressionLength);
-  const resultNumber = algebraicProgression[randomPlaceQuotes];
+  const corectIndexNumber = generateNumber(5, 1);
+  const progression = generateProgression(firstNumber, step, progressionLength);
+  const resultNumber = progression[corectIndexNumber];
   const rightAnswer = String(resultNumber);
-  algebraicProgression[randomPlaceQuotes] = '..';
-  const question1 = `${algebraicProgression.join(' ')}`;
+  progression[corectIndexNumber] = '..';
+  const question1 = `${progression.join(' ')}`;
   return [rightAnswer, question1];
 };
 export default () => gameBrainLogic(startGame, gameDescription);
